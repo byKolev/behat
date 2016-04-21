@@ -57,12 +57,6 @@ profile:
     Behat\MinkExtension:
       base_url: https://Syngenta:Syngenta1@behat.test-syngentacp.acsitefactory.com/
       files_path: %paths.base%/features/Syngenta/CSV/
-      selenium2:
-              wd_host: "http://localhost:81/wd/hub"
-    Bex\Behat\ScreenshotExtension:
-      image_drivers:
-        local:
-          screenshot_directory: /var/www/behat/screenshots/
     Drupal\DrupalExtension:
               region_map:
                 MediaWebUpload: "#media-tab-media_internet"
