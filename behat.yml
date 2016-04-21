@@ -1,0 +1,67 @@
+default:
+  suites:
+     default:
+      contexts:
+        - FeatureContext:
+          - ['admin','1234']
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
+  formatters:
+    pretty:
+    html:
+        output_path: %paths.base%/build/html/behat
+  extensions:
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+        name: html
+        renderer: Twig
+    Behat\MinkExtension:
+      base_url: http://google.com
+      files_path: %paths.base%/files
+      sessions:
+        default:
+          goutte: ~
+        selenium2:
+          selenium2: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
+      api_driver: 'drush' 
+      drush:
+        alias: 'kkms2'
+      region_map:
+#CITI REGIONS
+        Check1: "#tfa_Pleaseuncheckthi-D"
+        Check2: "#tfa_Pleaseuncheckthi1-D"
+        Check3: "#tfa_Pleaseuncheckthi2-D"
+        UsrPassHolder: "#unpw-holder"
+        WebformSubmit: "#edit-actions"
+#Dagrofa regions
+        Organisations: ".chosen-container"
+        BreakingNews: ".js-marquee-wrapper"
+        SexRegion: ".form-item-profile-main-field-user-gender-und"
+        TermsRegion: ".form-item-terms-of-use"
+#LUSH regions
+        VerticalTab: ".vertical-tabs"
+        Photographer: ".field-name-field-tr-article-photographer"
+        Videographer: ".field-name-field-tr-article-videographer"
+        ThanksTo: ".field-name-field-tr-article-with-thanks-to"
+        Category: ".field-name-field-category-type"
+        DeployHistoryOverview: "#edit-deploy-history"
+        EditorialContentTable: ".views-table"    
+        Autocomplete: "#autocomplete"
+        OmsTable: "#productTable"
+        ReservationQty: ".views-field-reservation-qty"
+        ManageStock: "#manage_stock_id"
+profile:
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://www.google.com
+      files_path: %paths.base%/files
+  suites:
+      default:
+        contexts:
+        - Drupal\DrupalExtension\Context\MinkContext:
+        - Drupal\DrupalExtension\Context\MessageContext:
+        - Drupal\DrupalExtension\Context\DrushContext:
+        - FeatureContext:
+            - ['admin','Bryggen2300']

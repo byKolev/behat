@@ -1,0 +1,12 @@
+{
+"require": {
+    "behat/behat":  "*",
+    "drupal/drupal-extension": "*",
+    "emuse/behat-html-formatter": "*",
+    "twig/twig": "*",
+    "bex/behat-screenshot": "*"
+},
+    "config": {
+      "bin-dir": "bin/"
+    }
+}
