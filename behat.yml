@@ -55,13 +55,51 @@ default:
 profile:
   extensions:
     Behat\MinkExtension:
-      base_url: http://www.google.com
-      files_path: %paths.base%/files
+      base_url: https://Syngenta:Syngenta1@behat.test-syngentacp.acsitefactory.com/
+      files_path: %paths.base%/features/Syngenta/CSV/
+      selenium2:
+              wd_host: "http://localhost:81/wd/hub"
+    Bex\Behat\ScreenshotExtension:
+      image_drivers:
+        local:
+          screenshot_directory: /var/www/behat/screenshots/
+    Drupal\DrupalExtension:
+              region_map:
+                MediaWebUpload: "#media-tab-media_internet"
+                EditActions: "#edit-actions"
+                ContactUsLinks: ".panels-ipe-sort-container"
+                TextBlocksProductCP: "#edit-syn-editorial-text-blocks-syn-product-cp"
+                TextBlocksSeed: "#edit-syn-editorial-text-blocks-syn-product-seed"
+                TextBlocksTarget: "#edit-syn-editorial-text-blocks-syn-product-target"
+                TextBlocksSearch: "#edit-syn-editorial-text-blocks-syn-search"
+                Roles: "#edit-roles"
+                MyProfileSecondaryTabs: ".tabs-secondary"
+                MediaUpload: ".media-internet-add-upload"
+                ResultsTable: ".view-content"
+                AddressAutocomplete: ".addressfield-autocomplete-link"
+                UiTabsNav: ".ui-tabs-nav"
+                ProductCPregistration: ".view-mode-product_cp_registration_on_product_cp"
+                SeedTabs: "#quicktabs-product_seed_corn"
   suites:
       default:
         contexts:
-        - Drupal\DrupalExtension\Context\MinkContext:
-        - Drupal\DrupalExtension\Context\MessageContext:
-        - Drupal\DrupalExtension\Context\DrushContext:
-        - FeatureContext:
-            - ['admin','Bryggen2300']
+          - Drupal\DrupalExtension\Context\MinkContext:
+          - Drupal\DrupalExtension\Context\MessageContext:
+          - Drupal\DrupalExtension\Context\DrushContext:
+          - SyngentaContext:
+              - mainSite:
+                  user: "admin"
+                  pass: "123456Qa!"
+                DAS:
+                  url: "https://drpauth.test-syngentacp.acsitefactory.com"
+                  user: "administrator"
+                  pass: "Syngenta1"
+                secondCountrySite:
+                  url: "https://behat2.test-syngentacp.acsitefactory.com"
+                  user: "admin"
+                  pass: "123456Qa!"
+                Facebook:
+                  user: "propeople.qa@gmail.com"
+                  pass: "090402QA"
+                  FirstName: "Propeople"
+                  LastName: "Qa"
