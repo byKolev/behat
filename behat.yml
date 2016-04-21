@@ -57,8 +57,8 @@ profile:
     Behat\MinkExtension:
       base_url: https://Syngenta:Syngenta1@behat.test-syngentacp.acsitefactory.com/
       files_path: %paths.base%/features/Syngenta/CSV/
-      #selenium2:
-              #wd_host: "http://localhost:81/wd/hub"
+      selenium2:
+              wd_host: "http://localhost:1234/wd/hub"
     Drupal\DrupalExtension:
               region_map:
                 MediaWebUpload: "#media-tab-media_internet"
