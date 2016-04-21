@@ -4,9 +4,18 @@
     "drupal/drupal-extension": "*",
     "emuse/behat-html-formatter": "*",
     "twig/twig": "*",
-    "bex/behat-screenshot": "*"
+    "bex/behat-screenshot": "*",
+    "jakoch/phantomjs-installer": "2.1.1"
 },
     "config": {
       "bin-dir": "bin/"
+    }
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
     }
 }
